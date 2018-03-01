@@ -96,7 +96,7 @@ def image2vector(image):
     v -- a vector of shape (length*height*depth, 1)
     """
     
-    v = image.reshape((image.shape[0]*image.shape[1]*image.shape[2])) # v.shape[0] = a ; v.shape[1] = b ; v.shape[2] = c
+    v = image.reshape((image.shape[0]*image.shape[1]*image.shape[2]), 1) # v.shape[0] = a ; v.shape[1] = b ; v.shape[2] = c
     
     return v
 
@@ -253,10 +253,8 @@ def L1(yhat, y):
     loss -- the value of the L1 loss function defined above
     """
     
-    ### START CODE HERE ### (≈ 1 line of code)
     loss = np.sum(abs(y-yhat))
-    ### END CODE HERE ###
-    
+
     return loss
 
 yhat = np.array([.9, 0.2, 0.1, .4, .9])
@@ -273,10 +271,8 @@ def L2(yhat, y):
     Returns:
     loss -- the value of the L2 loss function defined above
     """
-    
-    ### START CODE HERE ### (≈ 1 line of code)
+
     loss = np.dot(y-yhat, y-yhat)
-    ### END CODE HERE ###
     
     return loss
 
